@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : ajax avec vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <select v-model="comChoisie">
+        <option v-for="el in listeCP">{{el.Commune}}</option>
+      </select>
+
+      {{comChoisie}}<br />
+      {{cpComChoisie}}<br />
+      <ul>
+        <li v-for="cp in cpComChoisie">{{cp.CP}}</li>
+      </ul>
+    </div>
+    <script src="../vue.global.prod.js"></script>
+    <script src="ajax02b.js"></script>
+  </body>
+</html>

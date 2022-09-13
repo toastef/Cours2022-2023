@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>nom: <input type="text" v-model="nom" /></p>
+      <p>age: <input type="text" v-model.number="age" /></p>
+      <p><button @click="ajoutCandidat">ajouter</button></p>
+
+      Participants
+      <ul>
+        <li v-if="affUniquementParticipantsMajeurs" v-for="p in participantsMajeurs">{{p.nom}} {{p.age}}</li>
+        <li v-else v-for="p in participants">{{p.nom}} {{p.age}}</li>
+      </ul>
+
+      <input type="checkbox" v-model="affUniquementParticipantsMajeurs" />
+      Afficher uniquement les participants majeurs
+      <br />
+      <br />
+      moyenne des ages : {{moyenneAgeParticipants}}
+      <br />
+      <br />
+      {{participants}}
+    </div>
+
+    <script src="vue.global.prod.js"></script>
+    <script src="vue05.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style type="text/css"></style>
+    <meta charset="UTF-8" />
+    <title>JavaScript : ex 06 : course</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>course : {{dateCourse.toLocaleString()}}</h3>
+
+      <input type="text" v-model="nomNouveauPart" ref="txtNouvPart" />
+      <button @click="nouvelleInscription">inscription</button>
+
+      <ul>
+        <li v-for="p in listeParticipants">
+          {{p.num}} {{p.nom}} {{p.hDep.toLocaleTimeString()}} {{p.tps.toLocaleTimeString()}}
+          <button @click="departPart(p)" :disabled="p.timer != null">Start</button>
+          <button @click="arriveePart(p)" :disabled="p.timer == null || p.timer == 'stop'">Stop</button>
+        </li>
+      </ul>
+
+      <br />{{nbPart}} <br />{{listeParticipants}}
+    </div>
+
+    <script src="../vue.global.prod.js"></script>
+    <script src="./chrono06.js"></script>
+  </body>
+</html>

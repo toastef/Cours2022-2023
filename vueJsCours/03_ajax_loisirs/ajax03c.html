@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : ajax avec vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        âge :
+        <input type="number" min="0" max="99" v-model="age" />
+      </p>
+      <p v-for="loisir in loisirsAccessibles">
+        <input type="checkbox" :value="loisir.nom" v-model="loisirsChoisis" />
+        {{loisir.nom}} ({{loisir.ageMin}} ans min)
+      </p>
+      {{loisirsChoisis}} <br />
+      {{nbLoisirsChoisis}} loisirs - {{loisirsChoisis.length}} loisirs <br />
+      <button @click="envoyer" :disabled="!nbLoisirsOK">Envoyer</button>
+    </div>
+
+    <script src="../vue.global.prod.js"></script>
+    <script src="ajax03c.js"></script>
+  </body>
+</html>

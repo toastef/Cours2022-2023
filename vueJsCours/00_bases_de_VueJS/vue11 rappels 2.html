@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr>
+          <td>math</td>
+          <td><input v-model="math" type="number" min="0" max="10" step="1" /></td>
+          <td><span v-for="cpt in math"> *</span></td>
+        </tr>
+        <tr>
+          <td>français</td>
+          <td><input v-model="francais" type="number" min="0" max="10" step="1" /></td>
+          <td><span v-for="cpt in francais"> *</span></td>
+        </tr>
+        <tr>
+          <td>anglais</td>
+          <td><input v-model="anglais" type="number" min="0" max="10" step="1" /></td>
+          <td><span v-for="cpt in anglais"> *</span></td>
+        </tr>
+        <tr>
+          <td>chimie</td>
+          <td><input v-model="chimie" type="number" min="0" max="10" step="1" /></td>
+          <td><span v-for="cpt in chimie"> *</span></td>
+        </tr>
+        <tr>
+          <td>moyenne</td>
+          <td>{{moyenne.toFixed(2)}}</td>
+        </tr>
+      </table>
+    </div>
+    <script src="vue.global.prod.js"></script>
+    <script src="vue11 rappels 2.js"></script>
+  </body>
+</html>

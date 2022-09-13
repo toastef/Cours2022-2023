@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr>
+          <th></th>
+          <th>Article</th>
+          <th>PU</th>
+          <th>Qte</th>
+          <th>Prix</th>
+          <th></th>
+        </tr>
+        <tr v-for="(lg, i) in lgCde">
+          <td><button @click="delLgCde" :numLg="i" v-if="!validee">Delete</button></td>
+          <td><input type="text" v-model="lg.article" :disabled="validee" /></td>
+          <td><input type="number" v-model="lg.pu" :disabled="validee" /></td>
+          <td><input type="number" v-model="lg.qte" :disabled="validee" /></td>
+          <td>{{(lg.pu * lg.qte).toFixed(2)}}</td>
+          <td></td>
+        </tr>
+        <tr v-if="!validee">
+          <td><button @click="resetLgCde">Reset</button></td>
+          <td><input type="text" v-model="article" /></td>
+          <td><input type="number" v-model="pu" /></td>
+          <td><input type="number" v-model="qte" /></td>
+          <td>{{(pu * qte).toFixed(2)}}</td>
+          <td><button @click="addLgCde">Ajouter</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{totalPrix}}</td>
+          <td><button @click="validateCde" v-if="!validee">Valider</button></td>
+        </tr>
+      </table>
+      {{lgCde}}
+    </div>
+
+    <script src="vue.global.prod.js"></script>
+    <script src="vue09.js"></script>
+  </body>
+</html>

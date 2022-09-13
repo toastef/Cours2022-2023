@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style type="text/css"></style>
+    <meta charset="UTF-8" />
+    <title>JavaScript : ex 07 : compteurs</title>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="nom" type="text" />
+      <p @click="saluer">salut {{nom}}</p>
+      <!-- <cpt libelle="chat"></cpt> -->
+      <cpt @ajout="ajoutChien">chien</cpt>
+      <p>{{animaux}}</p>
+      <cpt v-for="animal in animaux">{{animal}}</cpt>
+      <!-- <cpt>
+        <template v-slot:animal>scolopendre</template>
+        <template v-slot:objet>pattes</template>
+      </cpt> -->
+      <p>au revoir</p>
+    </div>
+    <script src="../vue.global.prod.js"></script>
+    <script src="./07g cpt.js"></script>
+  </body>
+</html>

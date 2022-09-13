@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <table border="1px">
+        <tr>
+          <th width="30%">nom</th>
+          <th width="30%">prénom</th>
+          <th width="10%">age</th>
+        </tr>
+        <tr v-for="(p,i) in participants">
+          <td>{{p.nom}}</td>
+          <td>{{p.prenom}}</td>
+          <td>{{p.age}}</td>
+          <td>{{i}}</td>
+        </tr>
+        <tr>
+          <td><input type="text" size="10" v-model="nomPart" /></td>
+          <td><input type="text" size="10" v-model="prenomPart" /></td>
+          <td><input type="text" size="5" v-model="agePart" /></td>
+          <td><button @click="ajoutParticipant">valider</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="vue.global.prod.js"></script>
+    <script src="vue07.js"></script>
+  </body>
+</html>

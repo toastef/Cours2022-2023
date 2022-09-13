@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : vuejs</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="fruit in fruits">{{fruit}}</li>
+      </ul>
+
+      <select>
+        <option v-for="fruit in fruits">{{fruit}}</option>
+      </select>
+
+      <p v-for="fruit in fruits">
+        <input type="checkbox" v-bind:value="fruit" />
+        {{fruit}}
+      </p>
+
+      <p v-for="fruit in fruits">
+        <input type="radio" name="fr" v-bind:value="fruit" />
+        {{fruit}}
+      </p>
+    </div>
+
+    <script src="vue.global.prod.js"></script>
+    <script src="vue02.js"></script>
+  </body>
+</html>
