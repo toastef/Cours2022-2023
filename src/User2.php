@@ -1,6 +1,9 @@
 <?php
 
 class User2
+
+// Geteur et Seteur
+
 {
     //propriete
     public string $name;
@@ -9,8 +12,11 @@ class User2
 
     public function message()
     {
-        return " Bienvenu dans l'administration" . $this->name;
+
+        return " Bienvenu dans l'administration " . $this->getname();
     }
+
+    //Les geteurs permetent d'acceder au propriétés private
 
 
     public function getname(): string
@@ -28,6 +34,8 @@ class User2
         return $this->old;
     }
 
+
+      //  les setters permettent de modifier les propriétés private
     /**
      * @param string $name
      */
