@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vueJs</title>
+
+</head>
+<body>
+
+
+<div id="app">
+    <p> nom: <input type="text" v-model="nom"></p>
+    <p> Bonjour {{nom}}</p>
+    <p> {{loisirs}}</p>
+    <ul>
+        <li v-for="loisir in loisirs">
+        {{loisir}}
+    </li>
+    </ul>
+
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="vue02.js"></script>
+</body>
+</html>
