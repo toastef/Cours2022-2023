@@ -1,21 +1,21 @@
 
-const app = Vue.createApp ({
+const app = Vue.createApp({
     data() {
-      return {
-          nom : "Michel",
-          loisirs: ["sieste" , "tv", "faire la fête"],
-          nouveauLoisir: "",
-      };
+        return {
+            nom : "Michel",
+            loisirs: ["sieste" , "tv", "faire la fête"],
+            nouveauLoisir: "",
+        };
     },
-    methods: {
+    methods: { // la section méthode  va regrouper les différentes fonctions a utiliser
         ajouterLoisir: function (){
-            if(this.nouveauLoisir === "") return; // si la case est vide on ne peut pas ajouter
+            if(this.nouveauLoisir == "") return; // si la case est vide on ne peut pas ajouter
             if(this.loisirs.findIndex(x => x === this.nouveauLoisir) >=0 ) return; // si il existe déja il ne l'ajoute pas
             this.loisirs.push(this.nouveauLoisir); // ajout du loisir au tableau
             this.nouveauLoisir =""; // remise a blanc de la case newloisir afin de pas faire d'ajout multiple
         }
     }
-});dit
+});
 app.mount('#app'); // liaison entre le app du doc html et le app du vueJs
 
 

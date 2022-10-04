@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="app">
+   <h1>Fiche personne</h1>
+    <p>nom: {{nom}}</p>
+    <p>prénom: {{prenom}}</p>
+    <p v-show="affichage">age : {{age}}</p>
+
+    <input type="checkbox" v-model="affichage">
+    affichage des infos privées
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="vue06.js"></script>
+</body>
+</html>

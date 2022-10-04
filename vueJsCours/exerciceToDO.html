@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>To Do list</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>To do list</h2>
+    <p><input type="checkbox" v-model="filtrageDesTaches" > Afficher les taches à terminées</p>
+    <ul>
+       <li v-for="t in list() " style="list-style-type: none">
+           <input type="checkbox" v-model="t.terminee">{{t.nom}}  <!-- va lié dasn les 2 senses le terminee du fichier javascript pour voir si c'est true ou false-->
+       </li>
+    </ul>
+    <input type="text" v-model.trim="ToDo">
+    <button v-on:click="ajouterToDo">Ajouter tache</button>
+    <p>{{listeDeTaches}}</p>
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="ToDo.js"></script>
+</body>
+</html>
