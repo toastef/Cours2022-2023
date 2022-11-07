@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>exotemps</title>
+</head>
+<body>
+<div id="app">
+<p>{{msTohms(duree )}}</p>
+<button @click="starttimer" v-bind:disabled="etat!=`Ready`">Start</button>
+<button @click="lapShow" v-bind:disabled="etat!=`Running`">Lap</button>
+<button @click="stopTimer" v-bind:disabled="etat!=`Running`">Stop</button>
+<button @click="resetTimer" v-bind:disabled="etat!=`stopped`">Reset</button>
+<br>
+    <ul>
+        <li v-for="(laps,i) in lap">{{i+1}}. {{msTohms(laps)}}</li>
+    </ul>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="exoTemps.js"></script>
+</body>
+</html>

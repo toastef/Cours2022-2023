@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <p>Course : {{heure}}</p>
+    <input type="text" v-model="nom" >
+    <button v-on:click="ajouter">Inscription</button>
+    <br>
+
+
+    <ul v-if="participants">
+
+        <li v-for=" participant in participants">{{participant.num}} {{participant.nom }} {{participant.hdep}} {{participant.tps}}
+            <button v-on:click="startTimer()" v-bind:disabled="etat ==='running'">start</button>
+            <button v-on:click="stopTimer()" v-bind:disabled="etat !=='running'">stop</button>
+        </li>
+
+    </ul>
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="ExerciceCompteur.js"></script>
+</body>
+</html>

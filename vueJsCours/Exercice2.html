@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+
+    <input type="text" v-model="compteur">
+    <button v-on:click="startCpt()" v-bind:disabled="etat ==='running'">start</button>
+    <button v-on:click="stopCpt()" v-bind:disabled="etat !=='running'">stop</button>
+    <button v-on:click="resetCpt()" v-bind:disabled="etat !=='stopped'">reset</button> <!-- les bouttons sont disabled quand il ne sont pas util dans l'état de timer-->
+
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="exercice2.js"></script>
+</body>
+</html>

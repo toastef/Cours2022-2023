@@ -8,7 +8,7 @@ const app = Vue.createApp({
     },
     methods: {},
 
-    computed: { // computed vont être des variables : calculer
+    computed: { // computed vont être des valeurs : calculer
         resultat() {
             let res ;
             switch (this.operation){

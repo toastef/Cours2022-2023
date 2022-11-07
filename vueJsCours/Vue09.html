@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(pers,i) in personne"> {{pers.nom}} <button @click="saluer(pers)">Saluer</button> </li>
+    </ul>
+    <br>
+    <p>{{message}}</p>
+    <p>{{salutation}}</p>
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="vue09.js"></script>
+</body>
+</html>
