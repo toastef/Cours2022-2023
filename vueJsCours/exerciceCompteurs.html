@@ -9,14 +9,12 @@
 </head>
 <body>
 <div id="app">
-    <p>Course : {{heure}}</p>
+    <p>Course : {{heures}}</p>
     <input type="text" v-model="nom" >
     <button v-on:click="ajouter">Inscription</button>
     <br>
 
-
-    <ul v-if="participants">
-
+<ul>
         <li v-for=" participant in participants">{{participant.num}} {{participant.nom }} {{participant.hdep}} {{participant.tps}}
             <button v-on:click="startTimer()" v-bind:disabled="etat ==='running'">start</button>
             <button v-on:click="stopTimer()" v-bind:disabled="etat !=='running'">stop</button>
@@ -31,3 +29,4 @@
 <script src="ExerciceCompteur.js"></script>
 </body>
 </html>
+

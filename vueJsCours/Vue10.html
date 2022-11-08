@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css"></style>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--Le v-bind va rendre la valeur de value dynamique -->
+    <label for="personnes">Personnes </label>
+        <select name="personnes" id="personnes"  v-model="persChoisie">
+        <option v-for="p in personnesFiltrees" v-bind:value="p.prenom">{{p.prenom}}, {{p.age}} ans, {{p.sexe}}</option>
+        </select>
+
+   <p> sexe : </p>
+
+    <p><input type="radio" v-model="Filtre" value="X" name="Filtre"><label>Tous</label></p>
+    <p><input type="radio" v-model="Filtre" value="H"   name="Filtre"><label>Homme</label></p>
+    <p><input type="radio" v-model="Filtre" value="F" name="Filtre"><label>Femme</label></p>
+
+    <p>Vous avez choisi : {{persChoisie}}, sex : {{Filtre}}</p>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="vue10.js"></script>
+</body>
+</html>

@@ -1,55 +1,45 @@
 const app = Vue.createApp({
     data() {
         return {
-            num: 1,
+            num: 0,
             nom:"",
             etat: "Ready",
-            heure : new Date().toLocaleDateString("fr-Be", { day :'numeric', month: 'numeric', year: "numeric", hour: 'numeric', minute:'numeric', second:'numeric'}),
-            hdep: null,
-            hfin: null,
-            tps: null,
-            duree:null,
-           participants: [
-               {
-                   num: 1 ,nom:"David", hdep: null, tps: 'salut', duree: 'heoolo'
-               },
-           ]
+            heures : new Date().toLocaleDateString("fr-Be", { day :'numeric', month: 'numeric', year: "numeric", hour: 'numeric', minute:'numeric', second:'numeric'}),
+           participants: [],
 
         };
     },
     methods: {
        ajouter() {
-            $i = 0 ;
             if(this.nom === "") return;
 
-                this.participants.push(
-                    {
-                        num: ++this.num,
-                        nom: this.nom,
-                        hdep : new Date().toLocaleDateString( "fr-BE",{
-                            hour: 'numeric',
-                            minute: 'numeric',
-                            second: 'numeric',
-                        }),
-                        tps: this.majDuree(),
-                        duree : this.tps,
-                    });
+                let nouv = {
+                    num: ++this.num,
+                    nom: this.nom,
+                    hDep: new Date(0 - 3600000),
+                    tps: new Date(0 - 3600000),
+                    timer: null,
+                }
 
+           this.participants.push(nouv)
             this.nom = "";
 
         } ,
-        startTimer() {
+        startTimer(nom) {
             if(this.etat !== 'Ready') return;
-            tps = this.tps = setInterval(this.majDuree, 10); // va permetre l'affichage du chrono
-            this.etat = "Running";
-            console.log('hello' + this.nom)
+            nom.hDep = new Date();
+            nom.timer = setInterval(
+                p => {
+                    p.tps = new Date(new Date() - p.hDep - 3600000);
+                },
+                900,
+                part
+            );
         },
-
-
 
         stopTimer() {
             if(this.etat !== "Running") return;
-            clearInterval(this.timer);
+            clearInterval(nom.timer);
             this.majDuree();
             this.etat = "stopped";
         },
