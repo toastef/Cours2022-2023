@@ -9,3 +9,5 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 $json = json_encode($result); // création d'un tab objet
 
 echo $json;
+
+
