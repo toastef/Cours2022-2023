@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : ex 06 : course</title>
+</head>
+<body>
+<div id="app">
+    <label for="nom"></label>
+    <input type="text" id="nom" v-model="nompers" placeholder="Nom">
+    <br>
+    <label for="prenom"></label>
+    <input type="text" id="prenom" v-model="prenompers" placeholder="Prenom">
+    <br>
+    <p> regions: </p>
+    <p v-for="r in regions">
+        <input type="radio" name="optRegion" v-model="regionChoisie" v-bind:value="r">
+        <!-- pour que la valeur de r soit dynamique en fonction du boutton choisi et change en fonction du changement fait dans le choix, on met un v-bind pour la rendre dynamique -->
+        {{r}}
+    </p>
+    <p> sports: </p>
+    <p v-for="s in sports">
+        <input type="checkbox" name="optSport" v-model="sportChoisis" v-bind:value="s">
+        {{s}}
+    </p>
+
+    <select multiple size="4" v-model="sportChoisis">
+        <option v-for="s in sports" v-bind:value="s">{{s}}</option>
+    </select>
+
+   <p>{{nompers}} {{prenompers}} de {{regionChoisie}} pratique {{sportChoisis}}  </p>
+
+
+
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="exo.js"></script>
+</body>
+</html>

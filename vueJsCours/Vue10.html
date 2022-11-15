@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style type="text/css"></style>
+
     <meta charset="UTF-8" />
     <title></title>
 </head>
@@ -19,7 +19,12 @@
     <p><input type="radio" v-model="Filtre" value="H"   name="Filtre"><label>Homme</label></p>
     <p><input type="radio" v-model="Filtre" value="F" name="Filtre"><label>Femme</label></p>
 
-    <p>Vous avez choisi : {{persChoisie}}, sex : {{Filtre}}</p>
+
+    <p>age minimum : <input type="number" v-model="ageMin"></p>
+    <p>age maximum : <input type="number" v-model="ageMax"></p>
+
+    <p>Vous avez choisi : {{persChoisie}}, sex : {{Filtre}} </p>
+    <p v-if="persChoisie != null"> age : {{getAge}}</p>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

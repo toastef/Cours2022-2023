@@ -11,6 +11,8 @@ const app = Vue.createApp({
             ],
             Filtre: "X", // M et F
             persChoisie:null,
+            ageMin: 0,
+            ageMax: 200,
         };
     },
     methods: {
@@ -18,19 +20,30 @@ const app = Vue.createApp({
     },
     computed: {
         personnesFiltrees (){
+            this.persChoisie = "";
+            let tabFiltrAge = this.personnes.filter(p => p.age >= this.ageMin && p.age <= this.ageMax)
             switch (this.Filtre) {
                 case  "X":
-                    return  this.personnes ;
-                    break;
+                    return  tabFiltrAge ;
+                   // pas besoin de break ici car il y a un return
                 case "F":
-                    return  this.personnes.filter(p => p.sexe === 'F');
-                    break;
+                    return  tabFiltrAge.filter(p => p.sexe === 'F');
+
                 case "H":
-                    return  this.personnes.filter(p => p.sexe === 'M');
-                    break;
+                    return  tabFiltrAge.filter(p => p.sexe === 'M');
 
             }
+        },
+        getAge() {
+            if (this.persChoisie == null){ return;
+            }else{
+
+                return this.personnes.find(p => p.prenom === this.persChoisie);
+
         }
+
+        },
+
     }
 });
 app.mount('#app');
