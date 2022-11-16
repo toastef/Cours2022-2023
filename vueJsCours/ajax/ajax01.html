@@ -7,6 +7,8 @@
   <body>
     <div id="app">
       <select v-model="codeChoisi">
+        <<!-- Le value de la liste des pays
+        est bind sur le code pays donc relation avec le fichier js  -->
         <option v-for="pays in listePaysTries" :value="pays.alpha2P">{{pays.nomFrP}}</option>
       </select>
       <p>code choisi : {{codeChoisi}}</p>

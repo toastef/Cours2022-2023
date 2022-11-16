@@ -2,15 +2,16 @@ const app = Vue.createApp({
   data() {
     return {
       listePays: [],
-      codeChoisi: null,
+      codeChoisi: null, // alpha2p en DB
     };
   },
   methods: {},
   computed: {
     paysChoisi() {
-      return this.listePays.find((p) => p.alpha2P == this.codeChoisi);
+      return this.listePays.find((p) => p.alpha2P === this.codeChoisi);
     },
     listePaysTries() {
+      // création d'une copie de la liste pour l'affichage par ordre alpha
       return [...this.listePays].sort((a, b) => a.nomFrP.localeCompare(b.nomFrP));
     },
   },
@@ -22,7 +23,7 @@ const app = Vue.createApp({
         for (const pays of liste) {
           this.listePays.push(pays); // on ajoute a ce qui existe déja
         }
-        //this.listePays = liste; // on écrase les éléments et on les remplace par une nouvelle liste
+        //this.listePays = liste; // on écrase les éléments et on les remplaces par une nouvelle liste
       });
   },
 });
