@@ -1,22 +1,22 @@
 const app = Vue.createApp({
-  data() {
+  data() { // data est une fonction qui return des données
     return {
       listePays: [],
       codeChoisi: null, // alpha2p en DB
     };
   },
-  methods: {},
+  methods: {}, // objet methods
   computed: {
     paysChoisi() {
-      return this.listePays.find((p) => p.alpha2P === this.codeChoisi);
+      return this.listePays.find((p) => p.alpha2P === this.codeChoisi); // find renvoi un objet, element
     },
     listePaysTries() {
-      // création d'une copie de la liste pour l'affichage par ordre alpha
+      // création d'une copie de la liste pour l'affichage par ordre alpha car le sort modifie le tab d'origine
       return [...this.listePays].sort((a, b) => a.nomFrP.localeCompare(b.nomFrP));
     },
   },
-  mounted() {
-    fetch("listeTousPays.php") // requête vers le serveur
+  mounted() { // fonction qui va s'executer apres le montage(l'affichage) de la page ,de l'app
+    fetch("listeTousPays.php") // requête vers le serveur vers le fichier reprennant les élements récupéré dans le fichier php
       .then((rep) => rep.json()) // transformation de la réponse du serveur
       .then((liste) => {
         // utilisation de la réponse transformée

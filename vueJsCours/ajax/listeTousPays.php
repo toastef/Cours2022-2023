@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO('mysql:host=localhost; dbname=paysmonde; charset=utf8', 'root','');
+$pdo = new PDO('mysql:host=localhost; dbname=paysmonde; charset=utf8', 'root','root');
 
 $statement = $pdo->prepare("SELECT * FROM pays");
 $statement->execute();
