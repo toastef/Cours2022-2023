@@ -6,14 +6,13 @@
 </head>
 <body>
 <div id="app">
-filtrage :<input type="text" v-model="filtre">
-filtrage en tappant be => affichage des pays avec be devant dans la liste déroulante
-si on prends al afficher les pays qui commencent par al ou qui contienne al
+    filtrage :<input type="text" placeholder="Search" v-model="filtre" v-on:keyup="listePaysTries">
 
-    <ul v-for="pays in listePaysTries">
-        <li >{{pays.nomFrP}}</li>
+    <ul v-for="pays in listePaysTries" >
+        <li style="list-style-type: none;"> {{pays.nomFrP}}</li>
     </ul>
-
+    <!--filtrage en tappant be => affichage des pays avec be devant dans la liste déroulante-->
+    <!--si on prends al afficher les pays qui commencent par al ou qui contienne al-->
 </div>
 
 
