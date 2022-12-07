@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code postaux</title>
+</head>
+<body>
+
+<div id="app">
+    filtrage :<input type="text" placeholder="Search" v-model="filtre" v-on:keyup="listeCommuneFind">
+
+  <select v-model="codeChoisi" >
+        <option v-for="c in listeCommuneFind" :value="c.Commune" >
+            {{c.CP}} {{c.Commune}}
+        </option>
+    </select>
+
+    <p> Vous habitez {{codeChoisi}}</p>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="ajaxCp.js"></script>
+</body>
+</html>

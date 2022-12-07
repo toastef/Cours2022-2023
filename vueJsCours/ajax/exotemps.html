@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="exerciceAlgo.css">
+</head>
+<body>
+<div id="app">
+    Choose a value : <select v-model="operation">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">x</option>
+    <option value="/">/</option>
+</select>
+    <div  v-for="i in calcul">
+    <input type="number" v-model="i[0]"> + <input type="number" v-model="i[1]">
+        =
+        <input type="number" v-model="i[3]"> <input type="submit" :disabled="i[2] === 1" @click="addcalc">
+        <br>
+    </div>
+    {{bonneRep}}/ {{(calcul.length)-1}}
+
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="Exotemps.js"></script>
+</body>
+</html>
+
+

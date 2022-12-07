@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="exerciceAlgo.css">
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="chk_ok"> OK <br>
+    <!-- on va bind la classe afin qu'elle soit dynamique et varié en fonction de ce que l'on veut -->
+    <p :class="chk_ok ? 'ok' : 'bad'">Salut ce texte est {{chk_ok}} </p>
+    <!-- opérateur ternaire, si chk_ok est vrai(true donc coché) alors classe ok sinon classe bad -->
+
+    <p>taille: <input type="number" min="0" max="10" v-model="numbr"></p>
+
+    <table>
+        <tr v-for="li in numbr">
+            <td v-for="ca in numbr" :class=" (li+ca)%2 === 0 ? 'bgtable' : '' ">
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="ExerciceAlgo.js"></script>
+</body>
+</html>
+
+
