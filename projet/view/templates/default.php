@@ -47,7 +47,7 @@
 <!-- Begin page content -->
 <main class=" mt-4">
     <div class="container mt-5">
-        <?= $content ;?>
+        <?= $content ;?> <!-- appel de la vue générée dans le ficier index.php -->
     </div>
 </main>
 
