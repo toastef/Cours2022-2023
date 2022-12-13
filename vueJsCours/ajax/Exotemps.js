@@ -1,44 +1,77 @@
 const app = Vue.createApp({
         data() { // data est une fonction qui return des données
             return {
-                calcul: [
-                     [Math.floor(Math.random()*101),Math.floor(Math.random()*101), 0, this.result],
-                ],
+                joueur: [],
                 result: null,
                 operation: "",
-                counter:0,
+                counter: 0,
+                nb1:Math.floor(Math.random() * 101),
+                nb2:Math.floor(Math.random() * 101),
                 bonneRep: null,
-                timing : 0,
+                timing: 0,
+                reponse: null,
+                nomNouveauPart: "",
+
             };
         },
         methods: {
-            addcalc(){
-                this.calcul[this.counter][2] = 1;
-                if((this.calcul[this.counter][0]) + (this.calcul[this.counter][1]) === this.calcul[this.counter][3]){
-                     this.bonneRep++;
+            addcalc() {
+                /* this.calcul[this.counter][2] = 1;*/
+                switch (this.operation) {
+                    case "+":
+                        this.result = this.nb1 + this.nb2;
+                        break;
+                    case "-":
+                        this.result = this.nb1 - this.nb2;
+                        break;
+                    case "*":
+                        this.result = this.nb1 * this.nb2;
+                        break;
+                    case"/":
+                        this.result = this.nb1 / this.nb2;
+                        break;
                 }
-                this.counter++;
+
+                if (this.result === this.joueur.reponse) {
+                    this.joueur.bonneRep++;
+                }
+                this.valide = 1;
+                this.nb1=Math.floor(Math.random() * 101);
+                this.nb2=Math.floor(Math.random() * 101);
+                this.joueur[0].calc.push( [this.nb1,this.nb2,this.reponse,this.valide] );
                 this.result = "";
-                this.calcul[this.counter] = [];
-                this.calcul[this.counter].push(Math.floor(Math.random()*100),Math.floor(Math.random()*100), 0, this.result)
-                this.timing = 1
+                this.timing = 1;
                 this.timeinter()
             },
-            timeinter(){
-                if(this.timing === 1){
+            timeinter() {
+                if (this.timing === 1) {
                     setTimeout(() => {
                         this.end();
                     }, 50000);
                 }
             },
-            end(){
-                this.calcul[this.counter][2] = 1 ;
-            }
-        },
-        computed: {
+            end() {
+                this.joueur.valide = 1;
+            },
+
+            nouvelleInscription() {
+                if (this.nomNouveauPart === "" || this.operation === "") return;
+
+                let nouv = {
+                    num: this.counter,
+                    nom: this.nomNouveauPart,
+                    calc: [[this.nb1, this.nb2,this.reponse,this.valide]],
+                    bonneRep: null,
+                };
+                this.joueur.push(nouv);
+                this.counter++;
+                this.nomNouveauPart = "";
+            },
 
         },
-        mounted() {}
+        computed: {},
+        mounted() {
+        }
         ,
 
     })
@@ -47,6 +80,6 @@ const app = Vue.createApp({
 app.mount("#app");
 
 
-function calculalea(){
+function calculalea() {
 
 }

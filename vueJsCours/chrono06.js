@@ -39,7 +39,7 @@ const app = Vue.createApp({
       );
     },
     arriveePart(part) {
-      if (part.timer == "stop") return; // course déjà terminée
+      if (part.timer === "stop") return; // course déjà terminée
       if (part.timer == null) return; // part pas encore en course
 
       clearInterval(part.timer);
