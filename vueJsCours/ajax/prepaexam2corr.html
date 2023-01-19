@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>cate selected {{cateSelected}}</p>
+
+    {{mots}}
+    <br>
+    <p>{{category}}</p>
+    <p>{{motsSelected}}</p>
+    <p>{{motAtrouver}}</p>
+
+    <p v-for="cat in category"><input type="checkbox" v-model="cat.selected">{{cat.categorie}}</p>
+    <button @click="choisirMot">Choisir un mot</button>
+
+    <ul>
+        <li v-for="lettre in motAtrouver">
+            {{lettre}}
+
+    </li></ul>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="prepaexam2corr.js"></script>
+</body>
+</html>

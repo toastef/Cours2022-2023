@@ -20,7 +20,8 @@
         <div v-for="cal in i.calc">
                 <input type="number" v-model="cal[0]"> {{operation}} <input type="number" v-model="cal[1]">
                 =
-                <input type="number" v-model="cal[2]"> <input type="submit" @click="addcalc()">
+                <input type="number" v-model="cal[2]">
+                <input type="submit" @click="addcalc()" :disabled="valide===true">
                 <br>
             </div>
     </div>

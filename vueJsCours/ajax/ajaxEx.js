@@ -3,7 +3,7 @@ const app = Vue.createApp({
             return {
                 listePays: [],
                 filtre: "",
-                codeChoisi: null, // alpha2p en DB
+                codeChoisi: null,
 
             };
         },

@@ -1,0 +1,54 @@
+[
+  {
+    "mot": "france",
+    "categorie": "pays"
+  },
+  {
+    "mot": "poire",
+    "categorie": "fruit"
+  },
+  {
+    "mot": "cerise",
+    "categorie": "fruit"
+  },
+  {
+    "mot": "italie",
+    "categorie": "pays"
+  },
+  {
+    "mot": "chine",
+    "categorie": "pays"
+  },
+  {
+    "mot": "chien",
+    "categorie": "animal"
+  },
+  {
+    "mot": "kiwi",
+    "categorie": "fruit"
+  },
+  {
+    "mot": "lion",
+    "categorie": "animal"
+  },
+  {
+    "mot": "cheval",
+    "categorie": "animal"
+  },
+  {
+    "mot": "belgique",
+    "categorie": "pays"
+  },
+  {
+    "mot": "suisse",
+    "categorie": "pays"
+  },
+  {
+    "mot": "serpent",
+    "categorie": "animal"
+  },
+  {
+    "mot": "pomme",
+    "categorie": "fruit"
+  }
+]

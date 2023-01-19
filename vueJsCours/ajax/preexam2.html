@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>JavaScript : ex 05 : file d'attente</title>
+</head>
+<body>
+<div id="app">
+    <p>{{liste}}</p>
+    <p>{{selectedCategories}}</p>
+    <label v-for="category in categories" :key="category">
+        <input type="checkbox" v-model="selectedCategories" :value="category" @change="selectRandomWord" />
+        {{ category }}
+    </label>
+
+  <div v-if="randomWord">
+        <h3>{{randomWord.mot}}</h3>
+        <div v-for="letter in randomWordLetters" :key="letter">
+            <input type="text" v-model="userLetters[letter]" @input="checkLetter(letter)" :value="hiddenLetters[letter] || '*'"  :disabled="game-over"/>
+        </div>
+      <div v-if="gameStarted">temps : {{ timer }}</div>
+      <div v-if="gameOver">Time's Up!</div>
+    </div>
+
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="preexam2.js"></script>
+</body>
+</html>
+
+
+<!--afficher liste de categories
+quand on coche categorie on affiche les mots correspondant
+button pour choisir un mot au hasard a afficher en fct de la catég
+
+afficher un timer de 60 sec et a chaque fois que l'on tape une lettre erronée on retire 10 sec
+
+
+1 afficher cate
+2 les mots en fction de cat
+3 1 mots au hazard
+4 Afficher autant de case q'il n'y a de lettre
+5 timer 60 sec-->

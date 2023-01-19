@@ -9,6 +9,7 @@ const app = Vue.createApp({
                 nb2:Math.floor(Math.random() * 101),
                 bonneRep: null,
                 timing: 0,
+                valide: null,
                 reponse: null,
                 nomNouveauPart: "",
 
@@ -32,13 +33,15 @@ const app = Vue.createApp({
                         break;
                 }
 
-                if (this.result === this.joueur.reponse) {
+
+                if (this.result === this.joueur.response) {
                     this.joueur.bonneRep++;
                 }
-                this.valide = 1;
+
                 this.nb1=Math.floor(Math.random() * 101);
                 this.nb2=Math.floor(Math.random() * 101);
-                this.joueur[0].calc.push( [this.nb1,this.nb2,this.reponse,this.valide] );
+                this.valide = false;
+                this.joueur[0].calc.push( [this.nb1,this.nb2,this.reponse,this.valide,this.result] );
                 this.result = "";
                 this.timing = 1;
                 this.timeinter()
@@ -47,7 +50,7 @@ const app = Vue.createApp({
                 if (this.timing === 1) {
                     setTimeout(() => {
                         this.end();
-                    }, 50000);
+                    }, 5000);
                 }
             },
             end() {
@@ -60,7 +63,7 @@ const app = Vue.createApp({
                 let nouv = {
                     num: this.counter,
                     nom: this.nomNouveauPart,
-                    calc: [[this.nb1, this.nb2,this.reponse,this.valide]],
+                    calc: [[this.nb1, this.nb2,this.reponse,this.valide, this.result]],
                     bonneRep: null,
                 };
                 this.joueur.push(nouv);
@@ -78,8 +81,3 @@ const app = Vue.createApp({
 ;
 
 app.mount("#app");
-
-
-function calculalea() {
-
-}
