@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .nb {
+        border: solid 1px;
+      }
+      .nbTrouve {
+        background-color: green;
+      }
+      .nbAbsent {
+        background-color: gray;
+      }
+    </style>
+    <title>Verif lotto</title>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr>
+          <th>tirage:</th>
+          <th v-for="(nb,i) in tirage">
+            <input type="number" min="1" max="50" v-model="tirage[i]" />
+          </th>
+          <th></th>
+        </tr>
+        <tr v-for="gr in grilles">
+          <td>grille:</td>
+          <td v-for="(nb,i) in gr">
+            <input
+              type="number"
+              min="1"
+              max="50"
+              v-model="gr[i]"
+              :class="isNbInGrille(nb,tirage) ? 'nbTrouve' : 'nbAbsent'"
+            />
+          </td>
+          <td>{{nbCorrespondances(gr, tirage)}}</td>
+        </tr>
+      </table>
+      <button @click="ajouterGrille">Ajouter grille</button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="vue24_lotto.js"></script>
+  </body>
+</html>

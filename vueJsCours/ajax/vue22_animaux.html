@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>animaux sélectionnés : {{animauxSelectionnes}}</p>
+      <p>espèces sélectionnées : {{especesSelectionnees}}</p>
+
+      <table>
+        <tr>
+          <td v-for="e in especes" style="border: solid 1px">
+            <input type="checkbox" :value="e" v-model="especesSelectionnees" @change="clickCaseEspece(e,$event)" />
+            {{e}}
+            <ul>
+              <li v-for="a in animaux1espece(e)">
+                <input type="checkbox" v-model="a.selectionne" @change="deselectionnerEspece(a.espece)" />
+                {{a.nom}}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="vue22_animaux.js"></script>
+  </body>
+</html>

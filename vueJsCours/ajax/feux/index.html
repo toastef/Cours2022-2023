@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feux</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        width: 10%;
+        justify-content: space-between;
+
+    }
+    .voiture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .voiture:nth-child(1) {
+        padding-left: 15px;
+    }
+    .voiture div {
+        padding: 20px;
+        margin: 2px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .rouge{
+        background-color: red;
+    }
+    .vert  {
+        background-color: green;
+    }
+    .orange{
+        background-color: orangered;
+    }
+    .grey {
+        background-color: grey;
+    }
+</style>
+<body>
+
+
+<div class="container" id="app">
+    <div class="voiture">
+    Voitures
+        <div :class="rouge"></div>
+        <div :class="orange"></div>
+        <div :class="vert"></div>
+
+    </div>
+    <div class="voiture">
+        Pietons
+
+        <div :class="prouge"></div>
+        <div :class="pvert"></div>
+        <button  v-bind:disabled="btnDisabled" @click="changeLights">Piétons</button>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="Feux.js"></script>
+</body>
+</html>

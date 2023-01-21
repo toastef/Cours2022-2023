@@ -7,7 +7,7 @@
 <body>
 <div id="app">
   <table>
-      <tr>
+      <tr v-if="showtirage">
           <th>Tirage :</th>
           <!-- on v-model l'index du n dans tirage pour que la modification ce répercute dans le tab initial  -->
           <th v-for="(n,i) in tirage"><input type="number" min="1" max="50" v-model="tirage[i]">
@@ -15,11 +15,14 @@
       </tr>
       <tr v-for="gr in grids">
           <td >Grille : </td>
-          <td v-for="(nb,i) in gr"><input type="number" min="1" max="50" v-model="gr[i]" v-bind:style="{ 'background-color': isNbInGrid(gr[i],tirage) ? 'green' : 'white' }" /></td>
-          <td>{{nbMatch(gr,tirage)}}</td>
+          <td v-for="(nb,i) in gr"><input type="number" min="1" max="50" v-model="gr[i]"  v-bind:style="{ 'background-color': isNbInGrid(gr[i],tirage) ? 'green' : 'white' }" :disabled="tirageaffi"  />  </td>
+          <td v-if="tirageaffi">{{nbMatch(gr,tirage)}} bon numéros</td>
       </tr>
+      {{grids}}
   </table>
-    <button @click="ajouterGrille">Ajouter grille</button>
+    <button @click="ajouterGrille" :disabled="tirageaffi" >Ajouter grille</button>
+    <button @click="(showtirage = !showtirage) && (tirageaffi = true)">Tirage</button>
+
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="preexam1.js"></script>
@@ -27,19 +30,3 @@
 </html>
 
 
-<!--grille lotto 1,7,9,17,19,41 avec 6 numéros
-2,9,11,16,36,37
-1,6,14,18,39,50
-4,10,11,12,13,41
-
-
-
-tirage du jour 4,11,12,26,41,47
-
-automatiquement tous les num gagnants sont repérés
-ajouter le nombre en chiffres de bon numéro sur la droite de chaque grilles
-
-1 pouvoir ajouter dynamiquement des grilles avec button
-
-
-! nombre entre 1 et 50 , pas de doublons, pouvoir supprimer une ligne, si possible les nbr trié-->

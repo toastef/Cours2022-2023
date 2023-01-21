@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>liste animaux</title>
+</head>
+<body>
+
+
+<div id="app">
+
+        <div  style="display: flex; flex-direction: row; ">
+            <div v-for="x in espece" style="margin: 10px">
+            <h4><input type="checkbox" :value="x" v-model="especeselec" @change="selectAllAnimals(x, $event)">{{x}}</h4>
+            <p v-for="i in  animauxEspece(x)" @click="deselec(x)"><input type="checkbox" v-model="i.selectionne" >{{i.nom}}</p>
+            </div>
+        </div>
+
+    <div v-for="a in animauxChoisis">{{ a.nom}}</div>
+
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="animaux.js"></script>
+</body>
+</html>

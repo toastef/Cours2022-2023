@@ -1,0 +1,62 @@
+[
+  {
+    "nom": "Médor",
+    "espece": "chien"
+  },
+  {
+    "nom": "Pif",
+    "espece": "chien"
+  },
+  {
+    "nom": "Rantanplan",
+    "espece": "chien"
+  },
+  {
+    "nom": "Pluto",
+    "espece": "chien"
+  },
+  {
+    "nom": "Waf",
+    "espece": "chien"
+  },
+  {
+    "nom": "Garfield",
+    "espece": "chat"
+  },
+  {
+    "nom": "Gros Minet",
+    "espece": "chat"
+  },
+  {
+    "nom": "Miaou",
+    "espece": "chat"
+  },
+  {
+    "nom": "Lapinou",
+    "espece": "lapin"
+  },
+  {
+    "nom": "rose",
+    "espece": "lapin"
+  },
+  {
+    "nom": "Tigrou",
+    "espece": "tigre"
+  },
+  {
+    "nom": "Léo",
+    "espece": "lion"
+  },
+  {
+    "nom": "Albert",
+    "espece": "lion"
+  },
+  {
+    "nom": "Kaa",
+    "espece": "serpent"
+  },
+  {
+    "nom": "Sornette",
+    "espece": "serpent"
+  }
+]

@@ -1,15 +1,28 @@
 const app = Vue.createApp({
     data() {
         return {
-            tirage: [1,7,9,17,26,43],
+            tirage: [],
             grids:[[1,5,9,25,26,41]],
+            showtirage: false,
+            tirageaffi: false,
+
 
         };
     },
     methods: {
+        tirageale(){
+            while (this.tirage.length < 6) {
+                let num = Math.floor(Math.random() * 50) + 1;
+                if (!this.tirage.includes(num)) {
+                    this.tirage.push(num);
+                }
+            }
+            this.tirage.sort(function(a, b) { return a - b });
+        },
         ajouterGrille(){
             this.grids.push([null,null,null,null,null,null]);
         },
+
 
         isNbInGrid(nb,grid){
             if (nb === null) return false;
@@ -25,6 +38,10 @@ const app = Vue.createApp({
             return cpt;
         }
         },
+
+    mounted(){
+        this.tirageale();
+    },
 
     computed: {},
 

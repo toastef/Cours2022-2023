@@ -18,7 +18,7 @@ const app = Vue.createApp({
         deleteEle(pays) {
             let i = this.liste.findIndex(p => p === pays);
             if (i < 0) return; // si la position n'est pas trouvée dans la liste
-            this.liste.splice(i, 1);
+            this.liste.splice(i, 1);// supression de l'element
         }
 
     },
