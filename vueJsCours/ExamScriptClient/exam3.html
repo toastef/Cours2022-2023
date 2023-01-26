@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam3</title>
+</head>
+<body>
+<div id="app">
+    <label>Sexe:</label>
+    <input type="radio" v-model="sexeChoisi" value="Femme">Femmes
+    <input type="radio" v-model="sexeChoisi" value="Homme">Hommes
+    <input type="radio" v-model="sexeChoisi" value="X">Mixte
+    <br>
+
+    <div style="display: flex; margin-top: 15px;">
+        <div>
+        Joueur 1   <span v-if="sexeChoisi === 'X'"> Femme</span>
+   <span v-if="sexeChoisi === 'Femme'"> Femme</span>
+   <span v-if="sexeChoisi === 'Homme'"> Homme</span>
+   : <select v-model="selectedPlayer1">
+        <option v-for="player in liste1" :key="player.id" :value="player" :disabled="player.selected">
+            {{ player.prenom }} {{ player.nom }}
+        </option>
+    </select>
+        </div>
+        &nbsp;&nbsp;
+    <div>
+       Joueur 2   <span v-if="sexeChoisi === 'X'">  Homme </span>
+        <span v-if="sexeChoisi === 'Femme'">   Femme</span>
+        <span v-if="sexeChoisi === 'Homme'">   Homme</span>
+       : <select v-model="selectedPlayer2">
+            <option v-for="player in liste2" :key="player.id" :value="player" :disabled="player.selected">
+                {{ player.prenom }} {{ player.nom }}
+            </option>
+        </select>
+
+    </div>
+    </div>
+    <br>
+    <h5>Equipe</h5>
+
+        <p v-if="selectedPlayer1"> Joueur Choisi 1: {{ selectedPlayer1.prenom }} {{ selectedPlayer1.nom }}
+             (sexe: {{selectedPlayer1.sexe}})
+        </p>
+        <p v-if="selectedPlayer2"> Joueur Choisi 2: {{ selectedPlayer2.prenom }} {{ selectedPlayer2.nom }}
+             (sexe: {{selectedPlayer2.sexe}})
+        </p>
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="exam3.js"></script>
+</body>
+</html>

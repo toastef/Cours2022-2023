@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam2</title>
+</head>
+<body>
+<div id="app">
+    <div style="margin: 50px; background-color: rgba(128,128,128,0.52); display: flex; justify-content: center; align-items: center; width:30%; ">
+    <div v-if="attempts > 0" style="text-align: center">
+        <div style="display: flex">
+            <div v-for="number in numbers" :key="number" @click="addNumber(number)" style="display: inline-block; padding: 10px ; border: 1px solid grey; cursor: pointer; margin: 7px; ">
+                {{ number }}
+            </div>
+        </div>
+        <br>
+        <div>
+            <p style="text-align: center" >{{ codeWithStars }}</p>
+            <p v-if="!isCodeCorrect">Incorrect code, please try again</p>
+        </div>
+        <button @click="clearCode">Clear</button>
+        <button @click="checkCode" :disabled="code.length !== 4">Go</button>
+        <p>Attempts remaining: {{ attempts }}</p>
+        <p v-if="!isCodeCorrect">Incorrect code, please try again</p>
+        <p v-if="isCodeCorrect" style="color: green; font-size: 30px">Good Game You find it!!!! the code was 1984</p>
+    </div>
+    <p v-else style="color: red">Too many attempts, keyboard is disabled</p>
+    </div>
+
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="exam2.js"></script>
+</body>
+</html>
